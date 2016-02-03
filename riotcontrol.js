@@ -2,10 +2,10 @@ var riot = require('riot');
 var RiotControl = {
   _subscribers: [],
   _debug: false,
-  newStore: function() {
-    var store = riot.observable({});
-    this.subscribe(store);
-    return store;
+  subscriber: function() {
+    var subscriber = riot.observable({});
+    this.subscribe(subscriber);
+    return subscriber;
   },
   subscribe: function(subscriber) {
     this._subscribers.push(subscriber);
