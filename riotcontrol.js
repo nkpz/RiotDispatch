@@ -3,7 +3,9 @@ var RiotControl = {
   _subscribers: [],
   _debug: false,
   newStore: function() {
-    return riot.observable({});
+    var store = riot.observable({});
+    this.subscribe(store);
+    return store;
   },
   subscribe: function(subscriber) {
     this._subscribers.push(subscriber);
