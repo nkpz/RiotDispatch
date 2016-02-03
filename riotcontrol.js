@@ -23,7 +23,7 @@ var RiotControl = {
     var args = [].slice.call(arguments);
     this._subscribers.forEach(function(el){
       if (RiotControl._debug) {
-        console.log(api + ' ->', el, args);
+        console.log(api + ' ->', args, el);
       }
       el[api].apply(el, args);
     });
