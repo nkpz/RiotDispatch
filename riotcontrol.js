@@ -1,10 +1,14 @@
 var RiotControl = {
   _stores: [],
+  _debug: false,
   addStore: function(store) {
     this._stores.push(store);
   },
   reset: function() {
     this._stores = [];
+  },
+  debug: function(setting) {
+    this._debug = Boolean(setting);
   }
 };
 
@@ -12,6 +16,9 @@ var RiotControl = {
   RiotControl[api] = function() {
     var args = [].slice.call(arguments);
     this._stores.forEach(function(el){
+      if (RiotControl._debug) {
+        console.log(api + ' ->', el, args);
+      }
       el[api].apply(el, args);
     });
   };
