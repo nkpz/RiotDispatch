@@ -1,11 +1,11 @@
 var RiotControl = {
-  _stores: [],
+  _subscribers: [],
   _debug: false,
-  addStore: function(store) {
-    this._stores.push(store);
+  subscribe: function(subscriber) {
+    this._subscribers.push(subscriber);
   },
   reset: function() {
-    this._stores = [];
+    this._subscribers = [];
   },
   debug: function(setting) {
     this._debug = Boolean(setting);
@@ -15,7 +15,7 @@ var RiotControl = {
 ['on','one','off','trigger'].forEach(function(api){
   RiotControl[api] = function() {
     var args = [].slice.call(arguments);
-    this._stores.forEach(function(el){
+    this._subscribers.forEach(function(el){
       if (RiotControl._debug) {
         console.log(api + ' ->', el, args);
       }
