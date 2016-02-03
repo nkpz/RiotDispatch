@@ -30,4 +30,6 @@ var RiotControl = {
   };
 });
 
+RiotControl.action = RiotControl.trigger;
+
 if (typeof(module) !== 'undefined') module.exports = RiotControl;
