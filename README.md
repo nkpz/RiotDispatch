@@ -27,7 +27,7 @@ self.getApiStuff = function() {
     RiotDispatch.api.action('getApiStuff');
 };
 
-//This can be triggered with RiotDispatch.action (global action) or RiotDispatch.view.action (view action)
+//Listens for an action which can be triggered with RiotDispatch.action (global action) or RiotDispatch.view.action (view action)
 self.on('apiStuffChanged', function(apiStuff) {
     self.apiStuff = apiStuff;
     self.update();
