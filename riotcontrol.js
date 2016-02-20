@@ -1,5 +1,5 @@
 var riot = require('riot');
-var RiotControl = {
+var RiotDispatch = {
   _subscribers: [],
   _debug: false,
   subscriber: function() {
@@ -19,10 +19,10 @@ var RiotControl = {
 };
 
 ['on','one','off','trigger'].forEach(function(api){
-  RiotControl[api] = function() {
+  RiotDispatch[api] = function() {
     var args = [].slice.call(arguments);
     this._subscribers.forEach(function(el){
-      if (RiotControl._debug) {
+      if (RiotDispatch._debug) {
         console.log(api + ' ->', args, el);
       }
       el[api].apply(el, args);
@@ -30,6 +30,6 @@ var RiotControl = {
   };
 });
 
-RiotControl.action = RiotControl.trigger;
+RiotDispatch.action = RiotDispatch.trigger;
 
-if (typeof(module) !== 'undefined') module.exports = RiotControl;
+if (typeof(module) !== 'undefined') module.exports = RiotDispatch;
