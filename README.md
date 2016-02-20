@@ -18,6 +18,7 @@ RiotDispatch
 
 var self = this;
 RiotControl.subscribe(self);
+
 self.apiStuff = "";
 
 self.getApiStuff = function() {
