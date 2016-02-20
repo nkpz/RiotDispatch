@@ -1,5 +1,3 @@
-RiotDispatch
-=
 
 **Riot Tag:**
 ```
