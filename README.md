@@ -37,14 +37,14 @@ self.on('apiStuffChanged', function(apiStuff) {
 
 **stuffApi.js**
 ```
-//Subscribe as an API. This subscriber will receive global actions and API actions.
+// Subscribe as an API. This subscriber will receive global actions and API actions.
 var self = RiotDispatch.api.subscriber();
 
-//Listens for an action which is triggered by a button's onclick handler in the view.
+// Listens for an action which is triggered by a button's onclick handler in the view.
 self.on('getApiStuff', function() {
     $.get('http://api.test.xyz/')
     .done(function(apiStuff) {
-        //Create an action to be dispatched to stores. This action contains the data received from the API
+        // Create an action to be dispatched to stores. This action contains the data received from the API
         RiotDispatch.store.action('apiStuffReceived', apiStuff);
     });
 });
