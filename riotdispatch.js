@@ -41,7 +41,7 @@ var RiotDispatch = {
         action: function() {
           var args = [].slice.call(arguments);
           this._subscribers.forEach(function(el){
-            if (this._debug) {
+            if (RiotDispatch._debug) {
               console.log(args, el, '-> ' + nodeType);
             }
             el.trigger.apply(el, args);
