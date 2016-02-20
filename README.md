@@ -17,12 +17,12 @@ RiotDispatch
 </hello>
 
 var self = this;
-RiotControl.subscribe(self);
+RiotDispatch.subscribe(self);
 
 self.apiStuff = "";
 
 self.getApiStuff = function() {
-    RiotControl.action('getApiStuff');
+    RiotDispatch.action('getApiStuff');
 };
 
 self.on('apiStuffChanged', function(apiStuff) {
@@ -33,12 +33,12 @@ self.on('apiStuffChanged', function(apiStuff) {
 
 **stuffApi.js**
 ```
-var self = RiotControl.subscriber();
+var self = RiotDispatch.subscriber();
 
 self.on('getApiStuff', function() {
     $.get('http://api.test.xyz/')
     .done(function(apiStuff) {
-        RiotControl.action('apiStuffReceived', apiStuff);
+        RiotDispatch.action('apiStuffReceived', apiStuff);
     });
 });
 
@@ -47,10 +47,10 @@ module.exports = self;
 
 **stuffStore.js**
 ```
-var self = RiotControl.subscriber();
+var self = RiotDispatch.subscriber();
 
 var apiStuffChanged = function() {
-    RiotControl.action('apiStuffChanged', self.apiStuff);
+    RiotDispatch.action('apiStuffChanged', self.apiStuff);
 }
 
 self.apiStuff = "Default value from store";
