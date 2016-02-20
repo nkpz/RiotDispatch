@@ -31,16 +31,16 @@ self.on('apiStuffChanged', function(apiStuff) {
 
 **stuffApi.js**
 ```
-var stuffApi = RiotControl.subscriber();
+var self = RiotControl.subscriber();
 
-stuffApi.on('getApiStuff', function() {
+self.on('getApiStuff', function() {
     $.get('http://api.test.xyz/')
     .done(function(apiStuff) {
         RiotControl.action('apiStuffReceived', apiStuff);
     });
 });
 
-module.exports = stuffApi;
+module.exports = self;
 ```
 
 **stuffStore.js**
