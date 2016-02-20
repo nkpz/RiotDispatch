@@ -41,7 +41,7 @@ var RiotDispatch = {
             this._subscribers.push(subscriber);
         },
         subscriber: function() {
-            var subscriber = RiotDispatch.subscriber();
+            var subscriber = riot.observable({});
             this.subscribe(subscriber);
             return subscriber;
         },
