@@ -14,20 +14,21 @@ Usage:
 
 var self = this;
 
-//View the activity of the dispatcher in console
+// View the activity of the dispatcher in console
 RiotDispatch.debug(true);
 
-//Subscribe as a view. This component will receive global actions and view actions.
+// Subscribe as a view. This component will receive global actions and view actions.
 RiotDispatch.view.subscribe(self);
 
 self.apiStuff = "";
 
 self.getApiStuff = function() {
-    //Create an action to be dispatched to APIs
+    // Create an action to be dispatched to APIs
     RiotDispatch.api.action('getApiStuff');
 };
 
-//Listens for an action which can be triggered with RiotDispatch.action (global action) or RiotDispatch.view.action (view action)
+// Listens for an action which can be triggered with RiotDispatch.action (global action) 
+// or RiotDispatch.view.action (view action)
 self.on('apiStuffChanged', function(apiStuff) {
     self.apiStuff = apiStuff;
     self.update();
@@ -53,21 +54,23 @@ module.exports = self;
 
 **stuffStore.js**
 ```
-//Subscribe as an API. This subscriber will receive global actions and store actions.
+// Subscribe as an API. This subscriber will receive global actions and store actions.
 var self = RiotDispatch.store.subscriber();
 
 var apiStuffChanged = function() {
-    //Create an action to be dispatched to views. This action contains the current contents of the store.
+    // Create an action to be dispatched to views. This action contains the current contents of the store.
     RiotDispatch.view.action('apiStuffChanged', self.apiStuff);
 };
 
 self.apiStuff = "Default value from store";
 apiStuffChanged();
 
-//Listens for an action that is triggered by the API and contains data from an AJAX request, which we'd like to store.
+// Listens for an action that is triggered by the API and contains 
+// data from an AJAX request, which we'd like to store.
 self.on('apiStuffReceived', function(apiStuff) {
     self.apiStuff = "Stuff from API in store"
-    //Now that we have new data stored, run the action creator function to let the view know that it needs to rerender.
+// Now that we have new data stored, run the action creator function 
+// to let the view know that it needs to rerender.
     apiStuffChanged();
 });
 
