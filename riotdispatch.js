@@ -1,4 +1,7 @@
-var riot = require('riot');
+if (typeof require !== 'undefined' && typeof riot === 'undefined') {
+    var riot = require('riot');
+}
+
 var RiotDispatch = {
   _subscribers: [],
   _debug: false,
