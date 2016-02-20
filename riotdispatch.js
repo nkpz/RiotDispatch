@@ -33,9 +33,13 @@ var RiotDispatch = {
 ['view', 'store', 'api'].forEach(function(nodeType) {
     RiotDispatch[nodeType] = {
         _subscribers: [],
+        subscribe: function(subscriber) {
+            RiotDispatch.subscribe(subscriber);
+             this._subscribers.push(subscriber);
+        },
         subscriber: function() {
           var subscriber = RiotDispatch.subscriber();
-          this._subscribers.push(subscriber);
+          this.subscribe(subscriber);
           return subscriber;
         },
         action: function() {
