@@ -51,7 +51,7 @@ var self = RiotDispatch.subscriber();
 
 var apiStuffChanged = function() {
     RiotDispatch.action('apiStuffChanged', self.apiStuff);
-}
+};
 
 self.apiStuff = "Default value from store";
 apiStuffChanged();
