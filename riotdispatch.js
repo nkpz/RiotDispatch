@@ -2,6 +2,8 @@ if (typeof require !== 'undefined' && typeof riot === 'undefined') {
     var riot = require('riot');
 }
 
+var hasConsoleTrace = typeof console.trace !== "undefined";
+
 var RiotDispatch = {
     _subscribers: [],
     _debug: false,
@@ -21,6 +23,7 @@ var RiotDispatch = {
     },
     action: function() {
         var args = [].slice.call(arguments);
+        hasConsoleTrace && console.trace("global action created");
         this._subscribers.forEach(function(el) {
             if (this._debug) {
                 console.log(args, '-> global ->', el);
@@ -44,6 +47,7 @@ var RiotDispatch = {
         },
         action: function() {
             var args = [].slice.call(arguments);
+            hasConsoleTrace && console.trace(nodeType + " action created");
             this._subscribers.forEach(function(el) {
                 if (RiotDispatch._debug) {
                     console.log(args, '-> ' + nodeType + ' ->', el);
