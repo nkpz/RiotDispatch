@@ -23,7 +23,7 @@ var RiotDispatch = {
     },
     action: function() {
         var args = [].slice.call(arguments);
-        hasConsoleTrace && console.trace("global action created");
+        RiotDispatch._debug && hasConsoleTrace && console.trace("global action created");
         this._subscribers.forEach(function(el) {
             if (this._debug) {
                 console.log(args, '-> global ->', el);
@@ -47,7 +47,7 @@ var RiotDispatch = {
         },
         action: function() {
             var args = [].slice.call(arguments);
-            hasConsoleTrace && console.trace(nodeType + " action created");
+            RiotDispatch._debug && hasConsoleTrace && console.trace(nodeType + " action created");
             this._subscribers.forEach(function(el) {
                 if (RiotDispatch._debug) {
                     console.log(args, '-> ' + nodeType + ' ->', el);
