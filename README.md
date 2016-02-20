@@ -1,6 +1,7 @@
 RiotDispatch
 =
 *A fork of RiotControl: https://github.com/jimsparkman/RiotControl*
+
 *Tiny dispatcher for using the Flux architectural pattern with Riot.js*
 
 **Riot Tag:**
