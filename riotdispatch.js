@@ -21,18 +21,15 @@ var RiotDispatch = {
   }
 };
 
-['on','one','off','trigger'].forEach(function(api){
-  RiotDispatch[api] = function() {
-    var args = [].slice.call(arguments);
-    this._subscribers.forEach(function(el){
-      if (RiotDispatch._debug) {
-        console.log(api + ' ->', args, el);
-      }
-      el[api].apply(el, args);
-    });
-  };
-});
 
-RiotDispatch.action = RiotDispatch.trigger;
+RiotDispatch.action = function() {
+  var args = [].slice.call(arguments);
+  this._subscribers.forEach(function(el){
+    if (RiotDispatch._debug) {
+      console.log(args, el);
+    }
+    el.trigger.apply(el, args);
+  });
+};
 
 if (typeof(module) !== 'undefined') module.exports = RiotDispatch;
