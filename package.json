@@ -1,6 +1,6 @@
 {
   "name": "riotdispatch",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Event Controller / Dispatcher For RiotJS, Inspired By Flux",
   "main": "riotdispatch.js",
   "files": [
