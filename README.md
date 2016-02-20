@@ -67,7 +67,7 @@ apiStuffChanged();
 //Listens for an action that is triggered by the API and contains data from an AJAX request, which we'd like to store.
 self.on('apiStuffReceived', function(apiStuff) {
     self.apiStuff = "Stuff from API in store"
-    //Now that we have new data stored, run the action creator function to let the view know so it can rerender.
+    //Now that we have new data stored, run the action creator function to let the view know that it needs to rerender.
     apiStuffChanged();
 });
 
