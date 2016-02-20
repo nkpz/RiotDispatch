@@ -17,7 +17,10 @@ RiotDispatch
 </hello>
 
 var self = this;
+
+//View the activity of the dispatcher in console
 RiotDispatch.debug(true);
+
 RiotDispatch.view.subscribe(self);
 
 self.apiStuff = "";
