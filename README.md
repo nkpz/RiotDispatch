@@ -39,7 +39,7 @@ self.on('apiStuffChanged', function(apiStuff) {
 //Subscribe as an API. This subscriber will receive global actions and API actions.
 var self = RiotDispatch.api.subscriber();
 
-//This is triggered by a button's onclick handler in the view.
+//Listens for an action which is triggered by a button's onclick handler in the view.
 self.on('getApiStuff', function() {
     $.get('http://api.test.xyz/')
     .done(function(apiStuff) {
@@ -64,7 +64,7 @@ var apiStuffChanged = function() {
 self.apiStuff = "Default value from store";
 apiStuffChanged();
 
-//This is triggered by the API and contains data from an AJAX request which we'd like to store.
+//Listens for an action that is triggered by the API and contains data from an AJAX request, which we'd like to store.
 self.on('apiStuffReceived', function(apiStuff) {
     self.apiStuff = "Stuff from API in store"
     apiStuffChanged();
