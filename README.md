@@ -46,15 +46,16 @@ module.exports = stuffApi;
 ```
 var self = RiotControl.subscriber();
 
+var apiStuffChanged = function() {
+    RiotControl.action('apiStuffChanged', self.apiStuff);
+}
 
 self.apiStuff = "Default value from store";
-
-
 apiStuffChanged();
 
 self.on('apiStuffReceived', function(apiStuff) {
     self.apiStuff = "Stuff from API in store"
-    RiotControl.action('apiStuffChanged', stuffStore.apiStuff);
+    apiStuffChanged();
 });
 
 module.exports = self;
