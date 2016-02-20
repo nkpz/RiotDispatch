@@ -17,6 +17,7 @@ RiotDispatch
 </hello>
 
 var self = this;
+RiotDispatch.debug(true);
 RiotDispatch.view.subscribe(self);
 
 self.apiStuff = "";
