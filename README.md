@@ -8,7 +8,7 @@ RiotDispatch
 ```
 <hello>
     <button onclick={ getApiStuff }>
-        Hey.
+        Get some stuff from our stuff api
     </button>
 
     <div class="api-stuff">
