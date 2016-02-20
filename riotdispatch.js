@@ -23,7 +23,7 @@ var RiotDispatch = {
     var args = [].slice.call(arguments);
     this._subscribers.forEach(function(el){
       if (this._debug) {
-        console.log(args, el);
+        console.log(args, el, '-> global');
       }
       el.trigger.apply(el, args);
     }, this);
@@ -42,7 +42,7 @@ var RiotDispatch = {
           var args = [].slice.call(arguments);
           this._subscribers.forEach(function(el){
             if (this._debug) {
-              console.log(args, el, '->', nodeType);
+              console.log(args, el, '-> ' + nodeType);
             }
             el.trigger.apply(el, args);
           }, this);          
