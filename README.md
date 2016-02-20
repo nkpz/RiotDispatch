@@ -27,6 +27,7 @@ self.getApiStuff = function() {
 
 self.on('apiStuffChanged', function(apiStuff) {
     self.apiStuff = apiStuff;
+    self.update();
 };
 ```
 
