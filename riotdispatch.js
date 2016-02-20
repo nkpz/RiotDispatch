@@ -18,18 +18,36 @@ var RiotDispatch = {
   },
   debug: function(setting) {
     this._debug = Boolean(setting);
-  }
+  },
+  action: function() {
+    var args = [].slice.call(arguments);
+    this._subscribers.forEach(function(el){
+      if (this._debug) {
+        console.log(args, el);
+      }
+      el.trigger.apply(el, args);
+    }, this);
+  },
 };
 
-
-RiotDispatch.action = function() {
-  var args = [].slice.call(arguments);
-  this._subscribers.forEach(function(el){
-    if (RiotDispatch._debug) {
-      console.log(args, el);
+['view', 'store', 'api'].forEach(function(nodeType) {
+    RiotDispatch[nodeType] = {
+        _subscribers: [],
+        subscriber: function() {
+          var subscriber = RiotDispatch.subscriber();
+          this._subscribers.push(subscriber);
+          return subscriber;
+        },
+        action: function() {
+          var args = [].slice.call(arguments);
+          this._subscribers.forEach(function(el){
+            if (this._debug) {
+              console.log(args, el);
+            }
+            el.trigger.apply(el, args);
+          }, this);          
+        }
     }
-    el.trigger.apply(el, args);
-  });
-};
+});
 
 if (typeof(module) !== 'undefined') module.exports = RiotDispatch;
