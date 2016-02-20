@@ -2,7 +2,7 @@
   "name": "riotdispatch",
   "version": "0.0.3",
   "description": "Event Controller / Dispatcher For RiotJS, Inspired By Flux",
-  "main": "riotcontrol.js",
+  "main": "riotdispatch.js",
   "files": [
     "riotdispatch.js",
     "README.md",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nnjpp/RiotControl"
+    "url": "https://github.com/nnjpp/RiotDispatch"
   },
   "keywords": [
     "riotjs",
@@ -22,7 +22,7 @@
   "author": "Jim Sparkman + contributors",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nnjpp/RiotControl/issues"
+    "url": "https://github.com/nnjpp/RiotDispatch/issues"
   },
-  "homepage": "https://github.com/nnjpp/RiotControl"
+  "homepage": "https://github.com/nnjpp/RiotDispatch"
 }
