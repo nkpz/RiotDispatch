@@ -23,10 +23,10 @@ var RiotDispatch = {
     },
     action: function() {
         var args = [].slice.call(arguments);
-        RiotDispatch._debug && hasConsoleTrace && console.trace("global action created");
+        RiotDispatch._debug && hasConsoleTrace && console.trace("global action created: " + args[0]);
         this._subscribers.forEach(function(el) {
             if (this._debug) {
-                console.log(args, '-> global ->', el);
+                console.log(args[0], args.slice().splice(1), '-> global ->', el);
             }
             el.trigger.apply(el, args);
         }, this);
@@ -47,10 +47,10 @@ var RiotDispatch = {
         },
         action: function() {
             var args = [].slice.call(arguments);
-            RiotDispatch._debug && hasConsoleTrace && console.trace(nodeType + " action created");
+            RiotDispatch._debug && hasConsoleTrace && console.trace(nodeType + " action created: " + args[0]);
             this._subscribers.forEach(function(el) {
                 if (RiotDispatch._debug) {
-                    console.log(args, '-> ' + nodeType + ' ->', el);
+                    console.log(args[0], args.slice().splice(1), '-> ' + nodeType + ' ->', el);
                 }
                 el.trigger.apply(el, args);
             }, this);
